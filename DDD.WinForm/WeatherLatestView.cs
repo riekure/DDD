@@ -11,6 +11,9 @@ namespace DDD.WinForm
     // 3. データ取得後の値の加工、小数点以下2桁で丸める単位の表示
     // 4. weather テーブルの一覧表示画面を作成する場合は、そこにも同じ加工処理を各必要がある
 
+    // BAD コードの改善
+    // 第一段階：画面ごとに重複したコードを書く
+    // 第二段階：共通化を行う
     public partial class WeatherLatestView : Form
     {
         private readonly string ConnectionString = @"Data Source=C:\Users\ryo\Documents\DDD\DDD.db;Version=3;";
