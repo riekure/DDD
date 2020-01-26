@@ -28,6 +28,22 @@ namespace DDD.WinForm
     // 値とロジックを一体化させて、使う側にインテリセンスの中から選ぶだけの状態にする
     // ・ValueObject
     // ・Entity
+
+    // テストしやすいコード
+    // どこにも依存していない関数 = テストのしやすさ
+    // 関数内で他の関数を呼んでいたとしても、その関数がそこで完結していればOK
+
+    // テストしづらいコード
+    // アプリケーションの外部にアクセスしているコード（データベース、ファイル）
+    // 実際にファイルが存在しないとテストができない
+    // 外部機器がないとテストできない
+    // 解決策：インタフェースの利用、Moq などのツールを利用
+
+    // アーキテクチャー
+    // WinForm(WPF)：View（画面）、ViewModel（画面と1対1のロジック部分）
+    // Infrastructure：アプリケーションの外側との接触部分
+    // Domain：ビジネスロジック、ValueObject, Entity, Helper, Exception, 静的ロジック、インタフェース
+    // テストプロジェクト
     public partial class WeatherLatestView : Form
     {
         public WeatherLatestView()
