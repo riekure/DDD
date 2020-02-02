@@ -63,6 +63,7 @@ namespace DDD.WinForm
                     ConditionLabel.Text = dt.Rows[0]["Condition"].ToString();
                     TemperatureLabel.Text =
                         CommonFunc.RoundString(Convert.ToSingle(dt.Rows[0]["Temperature"]), CommonConst.temperatureDecimalPoint)
+                        + " "
                         + CommonConst.TemperatureUnitName;
                 }
             } catch (Exception)
