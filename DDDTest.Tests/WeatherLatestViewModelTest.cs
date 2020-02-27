@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using DDD.Domain.Entites;
 using DDD.Domain.Repositories;
 using DDD.WinForm.ViewModels;
@@ -28,11 +28,23 @@ namespace DDDTest.Tests
                 1,
                 22.123f));
 
-            var viewModel = new WeatherLatestViewModel(weatherMock.Object);
+            var areasMock = new Mock<IAreasRepository>();
+
+            var areas = new List<AreaEntity>();
+            areas.Add(new AreaEntity(1, "東京"));
+            areas.Add(new AreaEntity(2, "神戸"));
+            areasMock.Setup(x => x.GetData()).Returns(areas);
+
+            var viewModel = new WeatherLatestViewModel(weatherMock.Object, areasMock.Object);
             Assert.AreEqual("", viewModel.AreaIdText);
             Assert.AreEqual("", viewModel.DataDateText);
             Assert.AreEqual("", viewModel.ConditionText);
             Assert.AreEqual("", viewModel.TemperatureText);
+            Assert.AreEqual(2, viewModel.Areas.Count);
+            Assert.AreEqual(1, viewModel.Areas[0].AreaId);
+            Assert.AreEqual("東京", viewModel.Areas[0].AreaName);
+            Assert.AreEqual(2, viewModel.Areas[1].AreaId);
+            Assert.AreEqual("神戸", viewModel.Areas[1].AreaName);
 
             viewModel.AreaIdText = "1";
             viewModel.Search();
