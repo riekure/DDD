@@ -9,7 +9,7 @@ namespace DDD.Infrastructure.SQLite
     {
         public WeatherEntity GetLatest(int areaId)
         {
-            var sql = @"
+            string sql = @"
 select DataDate,
        Condition,
        Temperature

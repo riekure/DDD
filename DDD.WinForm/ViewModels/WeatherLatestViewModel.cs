@@ -9,9 +9,9 @@ namespace DDD.WinForm.ViewModels
     public class WeatherLatestViewModel : ViewModelBase
     {
         private IWeatherRepository _weather;
-        private IAreasRepository _areas;
+        IAreasRepository _areas;
 
-        public WeatherLatestViewModel() : this(new WeatherSQLite(), null)
+        public WeatherLatestViewModel() : this(new WeatherSQLite(), new AreasSQLite())
         {
         }
 
