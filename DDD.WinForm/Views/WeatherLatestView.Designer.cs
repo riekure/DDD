@@ -35,8 +35,8 @@
             this.DataDateLabel = new System.Windows.Forms.Label();
             this.ConditionLabel = new System.Windows.Forms.Label();
             this.TemperatureLabel = new System.Windows.Forms.Label();
-            this.AreaIdTextBox = new System.Windows.Forms.TextBox();
             this.LatestButton = new System.Windows.Forms.Button();
+            this.AreaComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -103,13 +103,6 @@
             this.TemperatureLabel.TabIndex = 6;
             this.TemperatureLabel.Text = "label7";
             // 
-            // AreaIdTextBox
-            // 
-            this.AreaIdTextBox.Location = new System.Drawing.Point(178, 87);
-            this.AreaIdTextBox.Name = "AreaIdTextBox";
-            this.AreaIdTextBox.Size = new System.Drawing.Size(110, 28);
-            this.AreaIdTextBox.TabIndex = 7;
-            // 
             // LatestButton
             // 
             this.LatestButton.Location = new System.Drawing.Point(358, 71);
@@ -120,13 +113,22 @@
             this.LatestButton.UseVisualStyleBackColor = true;
             this.LatestButton.Click += new System.EventHandler(this.LatestButton_Click);
             // 
+            // AreaComboBox
+            // 
+            this.AreaComboBox.FormattingEnabled = true;
+            this.AreaComboBox.Location = new System.Drawing.Point(145, 79);
+            this.AreaComboBox.Name = "AreaComboBox";
+            this.AreaComboBox.Size = new System.Drawing.Size(121, 29);
+            this.AreaComboBox.TabIndex = 9;
+            this.AreaComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // WeatherLatestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 623);
+            this.Controls.Add(this.AreaComboBox);
             this.Controls.Add(this.LatestButton);
-            this.Controls.Add(this.AreaIdTextBox);
             this.Controls.Add(this.TemperatureLabel);
             this.Controls.Add(this.ConditionLabel);
             this.Controls.Add(this.DataDateLabel);
@@ -151,8 +153,8 @@
         private System.Windows.Forms.Label DataDateLabel;
         private System.Windows.Forms.Label ConditionLabel;
         private System.Windows.Forms.Label TemperatureLabel;
-        private System.Windows.Forms.TextBox AreaIdTextBox;
         private System.Windows.Forms.Button LatestButton;
+        private System.Windows.Forms.ComboBox AreaComboBox;
     }
 }
 

@@ -47,7 +47,7 @@ namespace DDD.WinForm
         public WeatherLatestView()
         {
             InitializeComponent();
-            this.AreaIdTextBox.DataBindings.Add("Text", _viewModel, nameof(_viewModel.AreaIdText));
+            this.AreaComboBox.DataBindings.Add("Text", _viewModel, nameof(_viewModel.SelectedAreaId));
             this.DataDateLabel.DataBindings.Add("Text", _viewModel, nameof(_viewModel.DataDateText));
             this.ConditionLabel.DataBindings.Add("Text", _viewModel, nameof(_viewModel.ConditionText));
             this.TemperatureLabel.DataBindings.Add("Text", _viewModel, nameof(_viewModel.TemperatureText));
@@ -63,6 +63,11 @@ namespace DDD.WinForm
             {
                 ;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
