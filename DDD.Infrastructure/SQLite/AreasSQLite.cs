@@ -18,7 +18,7 @@ select AreaId,
        AreaName
 from Areas";
 
-            return SQLiteHelper.Query<AreaEntity>(sql, 
+            return SQLiteHelper.Query(sql, 
                 reader =>
                 {
                     return new AreaEntity(Convert.ToInt32(reader["AreaId"]),
