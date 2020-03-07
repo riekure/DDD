@@ -34,5 +34,10 @@ LIMIT 1";
                 },
                 null);
         }
+
+        public IReadOnlyList<WeatherEntity> GetData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
