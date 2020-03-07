@@ -37,6 +37,7 @@
             this.TemperatureLabel = new System.Windows.Forms.Label();
             this.LatestButton = new System.Windows.Forms.Button();
             this.AreaComboBox = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -122,11 +123,22 @@
             this.AreaComboBox.TabIndex = 9;
             this.AreaComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(71, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 44);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "List";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // WeatherLatestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(631, 623);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.AreaComboBox);
             this.Controls.Add(this.LatestButton);
             this.Controls.Add(this.TemperatureLabel);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.Label TemperatureLabel;
         private System.Windows.Forms.Button LatestButton;
         private System.Windows.Forms.ComboBox AreaComboBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

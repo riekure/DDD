@@ -1,5 +1,6 @@
 ﻿using DDD.Domain.Entites;
 using DDD.WinForm.ViewModels;
+using DDD.WinForm.Views;
 using System;
 using System.Windows.Forms;
 
@@ -75,6 +76,14 @@ namespace DDD.WinForm
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using(var f = new WeatherListView())
+            {
+                f.ShowDialog();
+            }
         }
     }
 }
