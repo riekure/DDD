@@ -18,7 +18,7 @@ namespace DDD.WinForm.ViewModels
 
             DataDateValue = GetDateTime();
             SelectedCondition = Condition.Sunny.Value;
-            TemparatureText = string.Empty;
+            TemperatureText = string.Empty;
 
             foreach(var area in _areas.GetData())
             {
@@ -28,7 +28,7 @@ namespace DDD.WinForm.ViewModels
         public object SelectedAreaId { get; set; }
         public DateTime DataDateValue { get; set; }
         public object SelectedCondition { get; set; }
-        public string TemparatureText { get; set; }
+        public string TemperatureText { get; set; }
         
         public BindingList<AreaEntity> Areas { get; set; }
         = new BindingList<AreaEntity>();
@@ -38,6 +38,7 @@ namespace DDD.WinForm.ViewModels
         public void Save()
         {
             Guard.IsNull(SelectedAreaId, "エリアを選択してください");
+            var temperature = Guard.IsFloat(TemperatureText, "温度の入力に誤りがあります");
         }
     }
 }

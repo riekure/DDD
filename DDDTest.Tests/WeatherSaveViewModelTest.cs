@@ -30,13 +30,18 @@ namespace DDDTest.Tests
             viewModel.SelectedAreaId.IsNull();
             viewModel.DataDateValue.Is(Convert.ToDateTime("2018/01/01 12:34:56"));
             viewModel.SelectedCondition.Is(1);
-            viewModel.TemparatureText.Is("");
+            viewModel.TemperatureText.Is("");
 
             viewModel.Areas.Count.Is(2);
             viewModel.Conditions.Count.Is(4);
 
             var ex = AssertEx.Throws<InputException>(() => viewModel.Save());
             ex.Message.Is("エリアを選択してください");
+
+            viewModel.SelectedAreaId = 2;
+            ex = AssertEx.Throws<InputException>(
+                () => viewModel.Save());
+            ex.Message.Is("温度の入力に誤りがあります");
         }
     }
 }
