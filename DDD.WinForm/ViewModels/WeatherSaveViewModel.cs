@@ -3,6 +3,7 @@ using DDD.Domain.Exceptions;
 using DDD.Domain.Helpers;
 using DDD.Domain.Repositories;
 using DDD.Domain.ValueObjects;
+using DDD.Infrastructure.SQLite;
 using System;
 using System.ComponentModel;
 
@@ -12,6 +13,11 @@ namespace DDD.WinForm.ViewModels
     {
         private IWeatherRepository _weather;
         private IAreasRepository _areas;
+
+        public WeatherSaveViewModel()
+            :this(new WeatherSQLite(), new AreasSQLite())
+        {
+        }
 
         public WeatherSaveViewModel(IWeatherRepository weather, IAreasRepository areas)
         {
@@ -36,6 +42,7 @@ namespace DDD.WinForm.ViewModels
         = new BindingList<AreaEntity>();
         public BindingList<Condition> Conditions { get; set; }
         = new BindingList<Condition>(Condition.ToList());
+        public string TemperatureUnitName => Temperature.UnitName;
 
         public void Save()
         {
@@ -48,7 +55,7 @@ namespace DDD.WinForm.ViewModels
                 Convert.ToInt32(SelectedCondition),
                 temperature);
 
-            //_weather.Save(entity);
+            _weather.Save(entity);
         }
     }
 }
